@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShopSearch"
+             x:Class="ShopSearch.MainPage"
+             
+             BackgroundColor="#efeff5" >
+
+    <StackLayout>
+        <!--<StackLayout Orientation="Horizontal">
+            <Frame BackgroundColor="#DCB34A">
+            <Image Source="close.png" BackgroundColor="#DCB34A" HeightRequest="35" WidthRequest="35"></Image>
+            </Frame>
+            <Label Text="Search" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"></Label>
+        </StackLayout>-->
+        <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="15">
+            <Label Text="Search" FontAttributes="Bold" Margin="10" TextColor="Black"></Label>
+        <SearchBar x:Name="MainSearchbar" TextChanged="SearchBar_Presses"></SearchBar>
+        </StackLayout>
+        <ListView x:Name="NamesListView"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                <ViewCell>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                           <StackLayout Orientation="Vertical">
+                                <Image Source="{Binding Image}"  HeightRequest="120" WidthRequest="120"></Image>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" Margin="20">
+                            <Label Text="{Binding Name}"
+                         TextColor="Black"
+                          FontAttributes="Bold"
+                          FontSize="15"         
+                        />
+                            <Label Text="{Binding Category}"
+                         TextColor="Black"
+                        />
+                         <Label Text="{Binding Price}"
+                         TextColor="Black"
+                         FontAttributes="Bold"
+                         FontSize="15"  
+                        />   
+                        </StackLayout>
+                         </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+
+</ContentPage>
